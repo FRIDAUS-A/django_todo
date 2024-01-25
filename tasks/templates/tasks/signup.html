@@ -1,0 +1,28 @@
+{% load static %}
+<form action="" method="post">
+	<link rel="stylesheet" href="{% static 'tasks/signup.css' %}">
+	{% csrf_token %}
+	<div class="signup">
+		<h1>Create your TODO</h1>
+		<h3>Enter your credentials to sign up</h3>
+		<br>
+		<br>
+		<br>
+		<input type="text" name="username" id="" class="login-input" value="Username">
+		<br>
+		<br>
+		<input type="email" name="email" id="" class="login-input" value="Email">
+		<br>
+		<br>
+		<input type="password" name="password" id="" class="login-input" value="Enter password">
+		<br>
+		<br>
+		<input type="password" name="confirm_password" id="" class="login-input" value="Confirm password">
+		<br>
+		<br>
+		<input type="submit" value="Sign up" id="login-button" class="login-input">
+	</div>
+</form>
+{% for message in messages %}
+{{ message }}
+{% endfor %}

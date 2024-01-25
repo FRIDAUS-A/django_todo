@@ -1,0 +1,27 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<title>Document</title>
+	<link rel="stylesheet" href="{%  static 'tasks/lists.css' %}">
+<body>
+	<h2 class="text-lg">Welcome {{ user.username }}</h2>
+	<br>
+	<h1 class="text-blue-600">TO DO</h1>
+	<form action="" method="POST" >
+		{% csrf_token %}
+		<input type="text" name="text" id="">
+		<input type="submit" value="Create Task">
+	</form>
+	<a href="{% url 'log_out' %}">Log out</a>
+	{% for task in tasks %}
+	<div>
+		<a href="{% url 'update' task.custom_user.user_uid task.task_id %}">Update</a>
+		<a href="{% url 'delete' task.custom_user.user_uid task.task_id %}">Delete</a>
+		<p>{{ task.title }} {{ task.complete }}</p>
+	</div>
+	{% endfor %}
+</body>
+</html>

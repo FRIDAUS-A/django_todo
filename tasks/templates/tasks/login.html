@@ -1,0 +1,25 @@
+{% load static %}
+<link rel="stylesheet" href="{% static 'tasks/login.css' %}">
+<form action="" method="post">
+	{% csrf_token %}
+	<div class="login">
+	<h1>Welcome back</h1>
+	<h3>Enter your credentials to login</h3>
+	<br>
+	<br>
+	<br>
+	<input type="text" name="username_login" class="login-input" value="Username">
+	<br>
+	<br>
+	<input type="password" name="password_login" id="" class="login-input" value="Password">
+	<br>
+	<br>
+	<input type="submit" value="Login" class="Login-input" id="login-button">
+	<br>
+	<p>or <a href="{% url 'signup' %}">Sign up</a></p>
+	</div>
+</form>
+{% for message in messages %}
+<br>
+{{ message }}
+{% endfor %}
